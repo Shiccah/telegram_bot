@@ -8,8 +8,4 @@ class TelegramBotApplication
 
 fun main(args: Array<String>) {
 	runApplication<TelegramBotApplication>(*args)
-
-	// TODO add
-	//  val telegramBotsApi = TelegramBotsApi(DefaultBotSession::class.java)
-	//  telegramBotsApi.registerBot(TestBot())
 }

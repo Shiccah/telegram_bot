@@ -1,12 +1,14 @@
-package main.kotlin.com.shiccah.telegram.bot
+package com.shiccah.telegram.bot
 
-import org.telegram.telegrambots.bots.TelegramLongPollingBot
+import org.telegram.telegrambots.bots.TelegramWebhookBot
+import org.telegram.telegrambots.meta.api.methods.BotApiMethod
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage
 import org.telegram.telegrambots.meta.api.objects.Update
 
-class TestBot : TelegramLongPollingBot() {
+class TestBot : TelegramWebhookBot() {
     private val TOKEN: String = ""
     private val USERNAME: String = ""
+    private var BOT_PATH: String = "https://e2a696db7933.ngrok.io"
 
     override fun getBotToken(): String {
         return TOKEN
@@ -16,13 +18,14 @@ class TestBot : TelegramLongPollingBot() {
         return USERNAME
     }
 
-    override fun onUpdateReceived(update: Update) {
-        if (update.message == null || !update.message.hasText()) return
-
-        val sendMessage = SendMessage().apply {
+    override fun onWebhookUpdateReceived(update: Update): BotApiMethod<*> {
+        return SendMessage().apply {
             chatId = update.message.chatId!!.toString()
-            text = "Hi ${update.message.text}"
+            text = "Hi ${update.message?.text ?: "Empty"}"
         }
-        execute(sendMessage)
+    }
+
+    override fun getBotPath(): String {
+        return BOT_PATH
     }
 }
