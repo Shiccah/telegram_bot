@@ -10,11 +10,6 @@ class AppConfig(private val property: BotConfigurationProperty) {
 
     @Bean
     fun testBot(): TestBot {
-        val options: DefaultBotOptions = DefaultBotOptions().apply {
-            proxyHost = property.proxyHost
-            proxyPort = property.proxyPort
-            proxyType = property.proxyType
-        }
-        return TestBot(property, options)
+        return TestBot(property)
     }
 }
