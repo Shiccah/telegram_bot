@@ -7,6 +7,11 @@ import org.telegram.telegrambots.meta.api.objects.Update
 @RestController
 class Controller(private val testBot: TestBot) {
 
+    @GetMapping(value = ["/"])
+    fun onUpdateReceived(): String {
+        return "OK"
+    }
+
     @PostMapping(value = ["/"])
     fun onUpdateReceived(@RequestBody update: Update): BotApiMethod<*>? {
         return testBot.onWebhookUpdateReceived(update)
