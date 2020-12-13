@@ -1,0 +1,7 @@
+server:
+  port: ${PORT:8080}
+
+telegrambot:
+  userName: ${USER_NAME}
+  botToken: ${BOT_TOKEN}
+  webHookPath: ${WEB_HOOK_PATH}
