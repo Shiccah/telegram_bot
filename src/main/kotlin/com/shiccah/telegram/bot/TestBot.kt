@@ -7,9 +7,9 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage
 import org.telegram.telegrambots.meta.api.objects.Update
 
 class TestBot(property: BotConfigurationProperty) : TelegramWebhookBot() {
-    private val TOKEN: String = property.botToken!!
-    private val USERNAME: String = property.userName!!
-    private var BOT_PATH: String = property.webHookPath!!
+    private val TOKEN: String = property.botToken
+    private val USERNAME: String = property.userName
+    private var BOT_PATH: String = property.webHookPath
 
     override fun getBotToken(): String {
         return TOKEN

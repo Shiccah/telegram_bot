@@ -1,12 +1,12 @@
 package com.shiccah.telegram.bot.configuration
 
 import org.springframework.boot.context.properties.ConfigurationProperties
-import org.springframework.stereotype.Component
+import org.springframework.context.annotation.Configuration
 
-@Component
+@Configuration
 @ConfigurationProperties(prefix = "telegrambot")
 class BotConfigurationProperty {
-    var webHookPath: String? = null
-    var userName: String? = null
-    var botToken: String? = null
+    lateinit var webHookPath: String
+    lateinit var userName: String
+    lateinit var botToken: String
 }
