@@ -1,1 +1,1 @@
-web: java -jar target/telegram-bot-0.0.1-SNAPSHOT.jar $PLAY_OPTS
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/telegram-bot-0.0.1-SNAPSHOT.jar $PLAY_OPTS
