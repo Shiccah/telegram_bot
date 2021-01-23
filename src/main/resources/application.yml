@@ -2,6 +2,15 @@ server:
   port: ${PORT:8080}
 
 telegrambot:
-  userName: ${USER_NAME}
-  botToken: ${BOT_TOKEN}
-  webHookPath: ${WEB_HOOK_PATH}
+  userName: ShiccahTestBOT
+  botToken: 1445896509:AAE6o8Pz1mrxnJ1nG5ml7O22uyZ8rhHhTY0
+  webHookPath: https://02e7464c3ef3.ngrok.io
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
